@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-02-14T11:40:20 IST" name="Default suite" finished-at="2024-02-14T11:43:27 IST" duration-ms="187168">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2024-02-14T11:40:20 IST" name="Default test" finished-at="2024-02-14T11:43:27 IST" duration-ms="187168">
+      <class name="com.GSD.testRunner.testNGRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:40:20 IST" name="setUpClass" finished-at="2024-02-14T11:40:37 IST" duration-ms="17466" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@77d3c3d7]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:40:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-02-14T11:41:53 IST" duration-ms="75561" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Successful login"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["User login"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:41:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-02-14T11:42:02 IST" duration-ms="9318" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["verifying OneCognizant page is opening or not"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["navigating to GSD page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:42:02 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-02-14T11:42:29 IST" duration-ms="27390" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Opening GSD from OneCognizant portal"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["navigating to GSD page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:42:29 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-02-14T11:42:41 IST" duration-ms="12048" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["verifying functionality of language and country dropdown"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["navigating to GSD page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:42:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-02-14T11:42:59 IST" duration-ms="17260" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Count and store the listed query options and there tooltip"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["navigating to GSD page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:42:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-02-14T11:43:05 IST" duration-ms="5818" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Checking Ticket Status"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["navigating to GSD page"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.GSD.testRunner.testNGRunner@6f204a1a]" started-at="2024-02-14T11:43:05 IST" name="tearDownClass" finished-at="2024-02-14T11:43:27 IST" duration-ms="22092" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.GSD.testRunner.testNGRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
