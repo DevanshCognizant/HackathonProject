@@ -16,7 +16,6 @@ import com.GSD.passwordEncryption.*;
 public class carLoan {
 
 	static loginPage lp ;
-	static beCognizantPage bcp;
 	
 	@Given("user opens car loan portal in EMICalculator")
 	public void user_opens_car_loan_portal_in_emi_calculator() {
@@ -25,8 +24,8 @@ public class carLoan {
 		lp.openLoanCalc();    
 	}
 	
-	@When("user enters loan amount")
-	public void user_enters_loan_amount() {
+	@When("user enters car loan amount")
+	public void user_enters_car_loan_amount() {
 		lp.initialpos();
 		lp.loanAmount();
 	}
@@ -38,8 +37,8 @@ public class carLoan {
 		Assert.assertTrue(true);
 	}
 	
-	@When("user enters interest rate")
-	public void user_enters_interest_rate() {
+	@When("user enters car interest rate")
+	public void user_enters_car_interest_rate() {
 		lp.initialpos();
 		lp.interestRate();
 	}
@@ -51,8 +50,8 @@ public class carLoan {
 			Assert.assertTrue(true);
 	}
 	
-	@When("user enters loan tenure")
-	public void user_enters_loan_tenure() {
+	@When("user enters car loan tenure")
+	public void user_enters_car_loan_tenure() {
 		lp.initialpos();
 		lp.loanTenure();
 	}
@@ -86,7 +85,6 @@ public class carLoan {
 	public void user_selects_emi_in_arrears_options() {
 		lp.scrollToElem2();
 		lp.emiSelect2();
-		//lp.yearSelect();
 	}
 	@Then("user prints first month interest amount and principal amount")
 	public void user_prints_first_month_interest_amount_and_principal_amount() throws InterruptedException {

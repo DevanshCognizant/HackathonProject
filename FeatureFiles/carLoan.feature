@@ -2,11 +2,11 @@ Feature: User navigates to EMICalculator
 
   Scenario: User calculate interest amount & principal amount for one month
     Given user opens car loan portal in EMICalculator
-    When user enters loan amount
+    When user enters car loan amount
     Then check if loan amount slider is working
-    When user enters interest rate
+    When user enters car interest rate
     Then check if interest rate slider is working
-    When user enters loan tenure
+    When user enters car loan tenure
     Then check if loan tenure slider is working
 
   Scenario: User selects EMI schemes

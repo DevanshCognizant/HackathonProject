@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		features= {".//FeatureFiles/carLoan.feature"}, 
+		features= {".//FeatureFiles/loanCalc.feature"}, 
 		glue = "com.GSD.stepDefinitions", 
 		plugin = {"pretty","html:reports/report.html"},
 		dryRun=false,

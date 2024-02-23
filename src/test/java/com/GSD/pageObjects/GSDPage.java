@@ -7,6 +7,7 @@ import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -23,198 +24,196 @@ public class GSDPage extends basePage {
 		
 	}
 	
-	@FindBy(xpath="//*[@id=\"appFrame\"]")								//Finding the WebElement iframe
-	WebElement iframe;
+	public String initialLoanSlider, initialEmiSlider, initialRateSlider, initialTenSlider, initialFeesSlider, actualLoanSlider, actualEmiSlider, actualRateSlider, actualTenSlider, actualFeesSlider;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/a/span")						//Finding the WebElement GSDTitle
-	public WebElement GSDTitle;
+	@FindBy(xpath="//*[@class='dropdown-toggle nav-link']")								//Finding the WebElement iframe
+	WebElement clickCalc;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[3]")					//Finding the WebElement welcomeText
-	WebElement welcomeText;
+	@FindBy(xpath="(//*[@class='dropdown-item'])[2]")						//Finding the WebElement GSDTitle
+	WebElement clickLoan;
 	
+	@FindBy(xpath="//*[@id='loanamount']")
+	WebElement LoanAmount;
 	
+	@FindBy(xpath="//*[@id='loaninterest']")
+	WebElement Interest;
 	
-	@FindBy(xpath="//*[@class=\"d-flex ms-auto\"]/div[1]/a")			//Finding the WebElement languageDD dropdown
-	WebElement languageDD;
+	@FindBy(xpath="//*[@id='loanterm']")
+	WebElement Term;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[1]/ul")				//Finding the WebElement languageMenu
-	WebElement languageMenu;
+	@FindBy(xpath="//*[@id='loanfees']")
+	WebElement Fees;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[1]/ul/li/a")			//Finding the list of WebElements languageList
-	List<WebElement> languagesList;
+	@FindBy(xpath="//*[@id='loan-amount-calc']")
+	WebElement clickLoanAmt;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[1]/a/span")			//Finding the WebElement languageSelected
-	WebElement languageSelected;
+	@FindBy(xpath="//*[@id='loanemi']")
+	WebElement Emi;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[2]/a")				//Finding the WebElement countryDD dropdown
-	WebElement countryDD;
+	@FindBy(xpath="//*[@id='loan-tenure-calc']")
+	WebElement clickLoanTenure;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[2]/ul")				//Finding the WebElement countryMenu
-	WebElement countryMenu;
+	@FindBy(xpath="//*[@id='interest-rate-calc']")
+	WebElement clickInterest;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[2]/ul/li/a")			//Finding the list of WebElements countriesList
-	List<WebElement> countriesList;
+	@FindBy(xpath="(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[1]")
+	WebElement loanAmtSlider;
 	
-	@FindBy(xpath="/html/body/nav[1]/div/form/div[2]/a/span")			//Finding the WebElement countrySelected
-	WebElement countrySelected;
+	@FindBy(xpath="(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[2]")
+	WebElement emiSlider;
 	
-	@FindBy(xpath="/html/body/div[2]/main/div[2]/div/div[5]/div/div/div/div/div[2]/div/div")
-	public List<WebElement> tiles;										//Finding the list of WebElements tiles
+	@FindBy(xpath="(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[3]")
+	WebElement rateSlider;
 	
-	@FindBy(xpath="(//*[@class='nav-link chat_gsd'])[1]")				//Finding the WebElement ticketStatusButton
-	WebElement ticketStatusButton;
+	@FindBy(xpath="(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[4]")
+	WebElement tenSlider;
 	
-	@FindBy(xpath="(//*[@class='showMore btncursor showTwo'])[2]")		//Finding the WebElement allTicketsButton
-	WebElement allTicketsButton;
+	@FindBy(xpath="(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[5]")
+	WebElement feesSlider;
 	
-	@FindBy(xpath="//*[@class='ticket_summary']")						//Finding the list of WebElements ticketSummaries
-	List<WebElement> ticketSummaries;
-	
-	@FindBy(xpath="//div[@class='col-sm-12 col-md-12 tile-inner-header']")
-	public List<WebElement> queryheaders;								//Finding the list of WebElements queryheaders
-	
-	@FindBy(xpath="//div[@class='col-md-12 application-tiles']")		//Finding the list of WebElements queries
-	public List<WebElement> queries;
-	
-	@FindBy(id="back_button")											//Finding the WebElement backToTiles
-	public WebElement backToTiles;
-	
-	
-	public void switchTOIframe() {										//Method for switching to an iframe
-		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60));
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iframe));
+	public void openloancalc() {
+		clickCalc.click();
+		clickLoan.click();
 	}
 	
-	public String getWelcomeText() throws InterruptedException {		//Method to get the text present in the welcomeText WebElement 
-		
-		Thread.sleep(25000);
-
-	
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOf(welcomeText));
-		String welcomeTxt = welcomeText.getText();
-
-		return welcomeTxt;
-
+	public void clickloanamt() {
+		clickLoanAmt.click();
 	}
 	
-	public void clickTicketStatusButton() {								//Method to click on the ticketStatus button
-		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();",ticketStatusButton);
+	public void clickloantenure() {
+		clickLoanTenure.click();
 	}
 	
-	public void clickOnShowAllTickets() {								//Method to click on Show all tickets
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.elementToBeClickable(allTicketsButton));
-		
-		allTicketsButton.click();
+	public void clickinterest() {
+		clickInterest.click();
 	}
 	
-	public int countNoOfTicketsRaised() {								//Method used to count the no of tickets raised
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOfAllElements(ticketSummaries));
-		
-		return ticketSummaries.size();
+	public void emiloanamount() {
+		LoanAmount.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		LoanAmount.sendKeys("1500000");
 	}
 	
-	public void navigateToGSDPage(){									// Method for navigating back to GSD page
-		
-		driver.navigate().back();
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOf(welcomeText));
-		
+	public void emiinterest() {
+		Interest.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Interest.sendKeys("9.5");
 	}
 	
-	public void clickLanguageDD() {										//Method to click on language dropdown
-		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();", languageDD);
-		
+	public void emiloanterm() {
+		Term.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Term.sendKeys("6");
 	}
 	
-	public void setLanguage(String lang) {								//Method to set the language
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOf(languageMenu));
-		for(int i=0; i<languagesList.size(); i++) {
-			if(lang.equalsIgnoreCase(languagesList.get(i).getText())) {
-				
-				languagesList.get(i).click();
-				
-				break;
-			}
-		}
-		
-		
+	public void emiloanfees() {
+		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Fees.sendKeys("12000");
 	}
 	
-	public void clickCountryDD() {										//Method to click on country dropdown
-		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(60));
-		if(languageSelected.getText().equalsIgnoreCase("English")) {
-			
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[text()=\"Global\"])[1]")));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].click();", countryDD);
-		}
-		
-		else {
-			
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[text()=\"Brazil\"])[1]")));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].click();", countryDD);
-		}
-		
-		
+	
+	public void emiamt() {
+		Emi.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Emi.sendKeys("20000");
 	}
 	
-	public String setCountry() {										//Method to set the country
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-		wait.until(ExpectedConditions.visibilityOf(countryMenu));
-		Random rand = new Random();
-		int rn = rand.nextInt(countriesList.size());
-		wait.until(ExpectedConditions.elementToBeClickable(countriesList.get(rn)));
-		String rSCountry = countriesList.get(rn).getText();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click();",countriesList.get(rn));
-		return rSCountry;
+	public void emirate() {
+		Interest.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Interest.sendKeys("11");
 	}
 	
-	public WebElement getCountrySelected(String rSCountry) {			//Method to get the selected country
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-		wait.until(ExpectedConditions.textToBePresentInElement(countrySelected, rSCountry));
-		return countrySelected;
-		
+	public void emiterm() {
+		Term.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Term.sendKeys("4");
 	}
 	
-	public void storingMetadata() throws IOException {					//Method used to store the metadata in excel file
-		//Creating object of an Actions class
-		Actions action = new Actions(driver);
-		//Performing the mouse hover action on the target elements
-		int index = 0;
-		for(WebElement query: queries) {
-			index++;
-			excelUtils.createRow(System.getProperty("user.dir")+"/src/test/resources/GSDAppData.xlsx","Sheet1",index,3,"");
-    		excelUtils.setCellData(System.getProperty("user.dir")+"/src/test/resources/GSDAppData.xlsx","Sheet1",index,0,Integer.toString(index));
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			WebElement temp= driver.findElement(By.xpath("(//div[@class=\"col-md-12 application-tiles\"])["+index+"]"));
-			String queryText=temp.getText();
-
-			excelUtils.setCellData(System.getProperty("user.dir")+"/src/test/resources/GSDAppData.xlsx","Sheet1",index,1,queryText);
-		    action.moveToElement(temp).perform();
-		    String toolTip=temp.getAttribute("data-bs-original-title");
-			excelUtils.setCellData(System.getProperty("user.dir")+"/src/test/resources/GSDAppData.xlsx","Sheet1",index,2,toolTip);
-
-	}
-
+	public void emifees() {
+		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Fees.sendKeys("9000");
 	}
 	
-
-
+	public void tenureamt() {
+		LoanAmount.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		LoanAmount.sendKeys("1500000");
+	}
+	
+	public void tenureemi() {
+		Emi.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Emi.sendKeys("22000");
+	}
+	
+	public void tenurerate() {
+		Interest.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Interest.sendKeys("11");
+	}
+	
+	public void tenurefees() {
+		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Fees.sendKeys("11000");
+	}
+	
+	public void intloanamt() {
+		LoanAmount.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		LoanAmount.sendKeys("1200000");
+	}
+	
+	public void intloanemi() {
+		Emi.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Emi.sendKeys("20000");
+	}
+	
+	public void intloanterm() {
+		Term.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Term.sendKeys("4");
+	}
+	
+	public void intloanfees() {
+		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
+		Fees.sendKeys("9000");
+	}
+	
+	public void initialEMIpos() {
+		initialLoanSlider = loanAmtSlider.getAttribute("style");
+		initialRateSlider = rateSlider.getAttribute("style");
+		initialTenSlider = tenSlider.getAttribute("style");
+		initialFeesSlider = feesSlider.getAttribute("style");
+	}
+	
+	public void initialAmountpos() {
+		initialEmiSlider = emiSlider.getAttribute("style");
+		initialRateSlider = rateSlider.getAttribute("style");
+		initialTenSlider = tenSlider.getAttribute("style");
+		initialFeesSlider = feesSlider.getAttribute("style");
+	}
+	
+	public void initialTenurepos() {
+		initialLoanSlider = loanAmtSlider.getAttribute("style");
+		initialEmiSlider = emiSlider.getAttribute("style");
+		initialRateSlider = rateSlider.getAttribute("style");
+		initialFeesSlider = feesSlider.getAttribute("style");
+	}
+	
+	public void initialRatepos() {
+		initialLoanSlider = loanAmtSlider.getAttribute("style");
+		initialEmiSlider = emiSlider.getAttribute("style");
+		initialTenSlider = tenSlider.getAttribute("style");
+		initialFeesSlider = feesSlider.getAttribute("style");
+	}
+	
+	public void actualloansliderpos() {
+		actualLoanSlider = loanAmtSlider.getAttribute("style");
+	}
+	
+	public void actualemisliderpos() {
+		actualEmiSlider = emiSlider.getAttribute("style");
+	}
+	
+	public void actualratesliderpos() {
+		actualRateSlider = rateSlider.getAttribute("style");
+	}
+	
+	public void actualtensliderpos() {
+		actualTenSlider = tenSlider.getAttribute("style");
+	}
+	
+	public void actualfeesslider() {
+		actualFeesSlider = feesSlider.getAttribute("style");
+	}
 }
