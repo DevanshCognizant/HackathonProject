@@ -2,6 +2,7 @@ package com.GSD.pageObjects;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.time.Month;
 import java.util.List;
 import java.util.Random;
 
@@ -17,9 +18,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.GSD.utils.*;
 
-public class GSDPage extends basePage {
+public class calcLoanPage extends basePage {
 
-	public GSDPage(WebDriver driver) {
+	public calcLoanPage(WebDriver driver) {
 		super(driver);
 		
 	}
@@ -71,6 +72,33 @@ public class GSDPage extends basePage {
 	@FindBy(xpath="(//*[@class='ui-slider-handle ui-corner-all ui-state-default'])[5]")
 	WebElement feesSlider;
 	
+	@FindBy(xpath="(//*[@class='btn btn-secondary active'])[2]")							//Finding the WebElement yes
+	WebElement webElement;
+	
+	@FindBy(xpath="//*[@class='btn-group btn-group-toggle add-check']")
+	public WebElement schemes;
+	
+	@FindBy(xpath="//*[@class='row gutter-left gutter-right']")
+	public WebElement paymentTable;
+	
+	@FindBy(xpath="//*[@class='col-md-4 col-lg-5 control-label']")
+	WebElement scrollGraph;
+	
+	@FindBy(xpath="(//*[@class='highcharts-plot-background'])[2]")
+	public WebElement graph;
+	
+	@FindBy(xpath="(//*[@class='highcharts-legend-box'])[2]")
+	WebElement scrollTable;
+	
+	@FindBy(xpath="//*[@class='btn btn-secondary']")
+	WebElement monthClick;
+	
+	@FindBy(xpath="(//*[@class='btn btn-secondary active'])[1]")
+	WebElement activeMonth;
+	
+	@FindBy(xpath="//*[@id='loanpaymenttable']")
+	public WebElement yearTable;
+	
 	public void openloancalc() {
 		clickCalc.click();
 		clickLoan.click();
@@ -88,83 +116,83 @@ public class GSDPage extends basePage {
 		clickInterest.click();
 	}
 	
-	public void emiloanamount() {
+	public void emiloanamount(String loanAmt) {
 		LoanAmount.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		LoanAmount.sendKeys("1500000");
+		LoanAmount.sendKeys(loanAmt);
 	}
 	
-	public void emiinterest() {
+	public void emiinterest(String rate) {
 		Interest.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Interest.sendKeys("9.5");
+		Interest.sendKeys(rate);
 	}
 	
-	public void emiloanterm() {
+	public void emiloanterm(String term) {
 		Term.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Term.sendKeys("6");
+		Term.sendKeys(term);
 	}
 	
-	public void emiloanfees() {
+	public void emiloanfees(String fees) {
 		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Fees.sendKeys("12000");
+		Fees.sendKeys(fees);
 	}
 	
 	
-	public void emiamt() {
+	public void emiamt(String emi) {
 		Emi.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Emi.sendKeys("20000");
+		Emi.sendKeys(emi);
 	}
 	
-	public void emirate() {
+	public void emirate(String rate) {
 		Interest.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Interest.sendKeys("11");
+		Interest.sendKeys(rate);
 	}
 	
-	public void emiterm() {
+	public void emiterm(String term) {
 		Term.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Term.sendKeys("4");
+		Term.sendKeys(term);
 	}
 	
-	public void emifees() {
+	public void emifees(String fees) {
 		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Fees.sendKeys("9000");
+		Fees.sendKeys(fees);
 	}
 	
-	public void tenureamt() {
+	public void tenureamt(String amt) {
 		LoanAmount.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		LoanAmount.sendKeys("1500000");
+		LoanAmount.sendKeys(amt);
 	}
 	
-	public void tenureemi() {
+	public void tenureemi(String emi) {
 		Emi.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Emi.sendKeys("22000");
+		Emi.sendKeys(emi);
 	}
 	
-	public void tenurerate() {
+	public void tenurerate(String rate) {
 		Interest.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Interest.sendKeys("11");
+		Interest.sendKeys(rate);
 	}
 	
-	public void tenurefees() {
+	public void tenurefees(String fees) {
 		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Fees.sendKeys("11000");
+		Fees.sendKeys(fees);
 	}
 	
-	public void intloanamt() {
+	public void intloanamt(String loanAmt) {
 		LoanAmount.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		LoanAmount.sendKeys("1200000");
+		LoanAmount.sendKeys(loanAmt);
 	}
 	
-	public void intloanemi() {
+	public void intloanemi(String emi) {
 		Emi.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Emi.sendKeys("20000");
+		Emi.sendKeys(emi);
 	}
 	
-	public void intloanterm() {
+	public void intloanterm(String term) {
 		Term.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		Term.sendKeys("4");
+		Term.sendKeys(term);
 	}
 	
-	public void intloanfees() {
+	public void intloanfees(String fees) {
 		Fees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
 		Fees.sendKeys("9000");
 	}
@@ -216,4 +244,31 @@ public class GSDPage extends basePage {
 	public void actualfeesslider() {
 		actualFeesSlider = feesSlider.getAttribute("style");
 	}
+	
+	public void scrollToSchemes() {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", webElement);
+
+	}
+	
+	public void scrollToGraph() {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", scrollGraph);
+
+	}
+	
+	public void scrollTotable() {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", scrollTable);
+
+	}
+	
+	public void monthclick() {
+		monthClick.click();
+		monthClick.click();
+	}
+	
 }

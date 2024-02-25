@@ -8,9 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class loginPage extends basePage {
+public class carLoanPage extends basePage {
 
-	public loginPage(WebDriver driver) {
+	public carLoanPage(WebDriver driver) {
 		super(driver);
 		
 	}
@@ -63,25 +63,25 @@ public class loginPage extends basePage {
 		
 	}
 	
-	public void loanAmount() {									//Method for clicking next button
+	public void loanAmount(String amount) {									//Method for clicking next button
 		loanAmt.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		loanAmt.sendKeys("1500000");
+		loanAmt.sendKeys(amount);
 	}
 	
-	public void interestRate() {						//Method for passing the password
+	public void interestRate(String rate) {						//Method for passing the password
 		loanInt.clear();
 		loanInt.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		loanInt.sendKeys("9.5");
+		loanInt.sendKeys(rate);
 	}
 	
-	public void loanTenure() {									//Method for clicking signin button
+	public void loanTenure(String tenure) {									//Method for clicking signin button
 		loanTerm.clear();
 		loanTerm.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		loanTerm.sendKeys("1");
+		loanTerm.sendKeys(tenure);
 	}
 	
 	
-	public void scrollToElem1() {
+	public void scrollToElem() {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", webElement);
@@ -111,13 +111,9 @@ public class loginPage extends basePage {
 		System.out.println(iAmount);
 	}
 	
-	public void scrollToElem2() {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].scrollIntoView();", webElement);
-
-	}
 	
 	public void emiSelect2() {
+		Emi.click();
 		Emi.click();
 	}
 	

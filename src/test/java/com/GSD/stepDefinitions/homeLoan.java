@@ -19,77 +19,69 @@ import com.GSD.pageObjects.*;
 
 public class homeLoan {
 
-	static oneCognizantPage ocp;
-	static beCognizantPage bcp;
+	static homeLoanPage ocp;
 	
 	@Given("user is on home loan emi calculator portal")
 	public void user_is_on_home_loan_emi_calculator_portal() {
 
-		ocp = new oneCognizantPage(baseClass.getDriver());
+		ocp = new homeLoanPage(baseClass.getDriver());
 		//ocp.scrolltop();
 		ocp.clickcalc();
 		ocp.clickHomeEMI();
 		
 	}
 	
-	@When("user enters home value")
-	public void user_enters_home_value() {
-		ocp.homeprice();
+	@When("user enters home value {string}")
+	public void user_enters_home_value(String homeVal) {
+		ocp.homeprice(homeVal);
 	}
 
-	@When("user enters margin")
-	public void user_enters_margin() {
-	   ocp.downpayment();
+	@When("user enters margin {string}")
+	public void user_enters_margin(String margin) {
+	   ocp.downpayment(margin);
 	}
 
-	@When("user enters loan insurance")
-	public void user_enters_loan_insurance() {
+	@When("user enters loan insurance {string}")
+	public void user_enters_loan_insurance(String loanIns) {
+		ocp.insuranceamount(loanIns);
+	}
+
+	@When("user enters home loan interest rate {string}")
+	public void user_enters_home_loan_interest_rate(String rate) {
+		ocp.homeinterest(rate);
+	}
+	
+	@When("user enters loan tenure in year {string}")
+	public void user_enters_loan_tenure_in_year(String year) {
 		
-		ocp.insuranceamount();
+		ocp.hometerm(year);
 	}
-
-	/*@Then("user checks loan amount")
-	public void user_checks_loan_amount() {
+	
+	@When("user enters loan fees and charges {string}")
+	public void user_enters_loan_fees_and_charges(String fees) {
 		
-		ocp.homeloanamount();
-	}*/
-	
-	@When("user enters home loan interest rate")
-	public void user_enters_home_loan_interest_rate() {
-		ocp.homeinterest();
-	}
-	
-	@When("user enters loan tenure in year")
-	public void user_enters_loan_tenure_in_year() {
-		
-		ocp.hometerm();
-	}
-	
-	@When("user enters loan fees and charges")
-	public void user_enters_loan_fees_and_charges() {
-		
-		ocp.loanfees();
+		ocp.loanfees(fees);
 	}
 	
 	
-	@When("user enters one time expenses")
-	public void user_enters_one_time_expenses() {
-	  ocp.onetime();
+	@When("user enters one time expenses {string}")
+	public void user_enters_one_time_expenses(String oneTime) {
+	  ocp.onetime(oneTime);
 	}
 
-	@When("user enters property taxes\\/year")
-	public void user_enters_property_taxes_year() {
-	 ocp.propertytaxes();
+	@When("user enters property taxes\\/year {string}")
+	public void user_enters_property_taxes_year(String taxes) {
+	 ocp.propertytaxes(taxes);
 	}
 
-	@When("user enters home insurance\\/year")
-	public void user_enters_home_insurance_year() {
-	ocp.homeinsurance();
+	@When("user enters home insurance\\/year {string}")
+	public void user_enters_home_insurance_year(String homeins) {
+	ocp.homeinsurance(homeins);
 	}
 
-	@When("user enters maintainance expenses\\/month")
-	public void user_enters_maintainance_expenses_month() {
-	   ocp.maintainexp();
+	@When("user enters maintainance expenses\\/month {string}")
+	public void user_enters_maintainance_expenses_month(String mainExp) {
+	   ocp.maintainexp(mainExp);
 	}
 	
 	@When("user enters start month")
@@ -112,6 +104,5 @@ public class homeLoan {
 	public void user_store_the_data_in_excel_file() throws IOException {
 	   ocp.writeExcelSheet();
 	}
-
-		
+	
 }

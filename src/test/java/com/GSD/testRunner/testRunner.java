@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		features= {".//FeatureFiles/loanCalc.feature"}, 
+		features= {".//FeatureFiles/"}, 
 		glue = "com.GSD.stepDefinitions", 
 		plugin = {"pretty","html:reports/report.html"},
 		dryRun=false,
@@ -16,4 +16,5 @@ import io.cucumber.junit.CucumberOptions;
 		)
 
 public class testRunner {
+	
 }

@@ -16,9 +16,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.GSD.utils.excelUtils;
 
-public class oneCognizantPage extends basePage {
+public class homeLoanPage extends basePage {
 
-	public oneCognizantPage(WebDriver driver) {
+	public homeLoanPage(WebDriver driver) {
 		super(driver);
 		
 	}
@@ -28,13 +28,13 @@ public class oneCognizantPage extends basePage {
 	String fileName=System.getProperty("user.dir")+"/src/test/resources/HomeLoan.xlsx";
 	
 	@FindBy(xpath="//*[@class='navbar-brand']")
-	WebElement scrollTop;										//Finding the WebElement beCogNews
+	WebElement scrollTop;										
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	
-	@FindBy(xpath="//*[@id='menu-item-dropdown-2696']")	//Finding the WebElement oneCTitle
+	@FindBy(xpath="//*[@id='menu-item-dropdown-2696']")	
 	WebElement clickCalc;
 	
-	@FindBy(xpath="//*[@class='dropdown-item'][1]")								//Finding the WebElement search
+	@FindBy(xpath="//*[@class='dropdown-item'][1]")								
 	WebElement homeEMI;
 	
 	@FindBy(xpath="//*[@id='homeprice']")
@@ -105,59 +105,55 @@ public class oneCognizantPage extends basePage {
 		homeEMI.click();
 	}
 	
-	public void homeprice() {										//Method for handling the multiple windows
+	public void homeprice(String homeVal) {										//Method for handling the multiple windows
 		homePrice.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		homePrice.sendKeys("4000000");
+		homePrice.sendKeys(homeVal);
 	}
 	
-	public void downpayment() {
+	public void downpayment(String margin) {
 		downPayment.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		downPayment.sendKeys("30");
+		downPayment.sendKeys(margin);
 	}
 	
-	public void insuranceamount() {
+	public void insuranceamount(String loanIns) {
 		homeLoanIns.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		homeLoanIns.sendKeys("250000");
+		homeLoanIns.sendKeys(loanIns);
 	}
 	
-	/*public void homeloanamount() {
-		//homeLoanAmt.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		loanAmount = homeLoanAmt.getText();
-	}*/
 	
-	public void homeinterest() {
+	public void homeinterest(String rate) {
 		homeLoanInterest.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		homeLoanInterest.sendKeys("9.5");
+		homeLoanInterest.sendKeys(rate);
 	}
 	
-	public void hometerm() {
+	public void hometerm(String year) {
 		homeLoanTerm.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		homeLoanTerm.sendKeys("10");
+		homeLoanTerm.sendKeys(year);
 	}
 	
-	public void loanfees() {
+	public void loanfees(String fees) {
 		loanFees.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		loanFees.sendKeys("35000");
+		loanFees.sendKeys(fees);
 	}
 	
-	public void onetime() {
+	public void onetime(String oneExp) {
 		oneTime.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		oneTime.sendKeys("15");
+		oneTime.sendKeys(oneExp);
 	}
 	
-	public void propertytaxes() {
+	public void propertytaxes(String taxes) {
 		propertyTaxes.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		propertyTaxes.sendKeys("0.35");
+		propertyTaxes.sendKeys(taxes);
 	}
 	
-	public void homeinsurance() {
+	public void homeinsurance(String homeins) {
 		homeIns.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		homeIns.sendKeys("0.15");
+		homeIns.sendKeys(homeins);
 	}
 	
-	public void maintainexp() {
+	public void maintainexp(String mainExp) {
 		maintainExp.sendKeys(Keys.chord(Keys.CONTROL,"a", Keys.DELETE));
-		maintainExp.sendKeys("3000");
+		maintainExp.sendKeys(mainExp);
 	}
 	
 	public void selectmonth() {

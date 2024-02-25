@@ -9,25 +9,24 @@ import com.GSD.utils.baseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import com.GSD.pageObjects.loginPage;
-import com.GSD.pageObjects.beCognizantPage;
+import com.GSD.pageObjects.carLoanPage;
 import com.GSD.passwordEncryption.*;
 
 public class carLoan {
 
-	static loginPage lp ;
+	static carLoanPage lp ;
 	
 	@Given("user opens car loan portal in EMICalculator")
 	public void user_opens_car_loan_portal_in_emi_calculator() {
 		
-		lp = new loginPage(baseClass.getDriver());
+		lp = new carLoanPage(baseClass.getDriver());
 		lp.openLoanCalc();    
 	}
 	
-	@When("user enters car loan amount")
-	public void user_enters_car_loan_amount() {
+	@When("user enters car loan amount {string}")
+	public void user_enters_car_loan_amount(String amount) {
 		lp.initialpos();
-		lp.loanAmount();
+		lp.loanAmount(amount);
 	}
 	
 	@Then("check if loan amount slider is working")
@@ -37,10 +36,10 @@ public class carLoan {
 		Assert.assertTrue(true);
 	}
 	
-	@When("user enters car interest rate")
-	public void user_enters_car_interest_rate() {
+	@When("user enters car interest rate {string}")
+	public void user_enters_car_interest_rate(String rate) {
 		lp.initialpos();
-		lp.interestRate();
+		lp.interestRate(rate);
 	}
 
 	@Then("check if interest rate slider is working")
@@ -50,10 +49,10 @@ public class carLoan {
 			Assert.assertTrue(true);
 	}
 	
-	@When("user enters car loan tenure")
-	public void user_enters_car_loan_tenure() {
+	@When("user enters car loan tenure {string}")
+	public void user_enters_car_loan_tenure(String tenure) {
 		lp.initialpos();
-		lp.loanTenure();
+		lp.loanTenure(tenure);
 	}
 	
 	@Then("check if loan tenure slider is working")
@@ -65,7 +64,7 @@ public class carLoan {
 	
 	@When("user selects EMI in advance options")
 	public void user_selects_emi_in_advance_options() {
-		lp.scrollToElem1();
+		lp.scrollToElem();
 		lp.emiSelect1();
 	}
 	
@@ -82,9 +81,10 @@ public class carLoan {
 	}
 	
 	@When("user selects EMI in Arrears options")
-	public void user_selects_emi_in_arrears_options() {
-		lp.scrollToElem2();
+	public void user_selects_emi_in_arrears_options() throws InterruptedException {
+		lp.scrollToElem();
 		lp.emiSelect2();
+		Thread.sleep(2000);
 	}
 	@Then("user prints first month interest amount and principal amount")
 	public void user_prints_first_month_interest_amount_and_principal_amount() throws InterruptedException {
