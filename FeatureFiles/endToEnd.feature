@@ -1,4 +1,59 @@
-Feature: User navigates to loan calculator
+Feature: User navigates to EMICalculator
+
+  Scenario Outline: User calculate interest amount & principal amount in EMI in advance
+    Given user opens car loan portal in EMICalculator
+    When user enters car loan amount "<amount>"
+    Then check if loan amount slider is working
+    When user enters car interest rate "<rate>"
+    Then check if interest rate slider is working
+    When user enters car loan tenure "<tenure>"
+    Then check if loan tenure slider is working
+    When user selects EMI in advance options
+    And user clicks on top year
+    Then user print first month interest amount and principal amount
+
+    Examples: 
+      | amount  | rate | tenure |
+      | 1500000 |  9.5 |      1 |
+      | 2000000 |  8.5 |      2 |
+
+  Scenario Outline: User calculate interest amount & principal amount in EMI in arrears
+    Given user opens car loan portal in EMICalculator
+    When user enters car loan amount "<amount>"
+    Then check if loan amount slider is working
+    When user enters car interest rate "<rate>"
+    Then check if interest rate slider is working
+    When user enters car loan tenure "<tenure>"
+    Then check if loan tenure slider is working
+    When user selects EMI in Arrears options
+    And user clicks on top year
+    Then user prints first month interest amount and principal amount
+
+    Examples: 
+      | amount  | rate | tenure |
+      | 3000000 |  8.5 |      4 |
+      | 1000000 |  7.5 |      5 |
+
+  Scenario Outline: User enters home loan details
+    Given user is on home loan emi calculator portal
+    When user enters home value "<homeVal>"
+    And user enters margin "<margin>"
+    And user enters loan insurance "<loanIns>"
+    When user enters home loan interest rate "<rate>"
+    And user enters loan tenure in year "<year>"
+    And user enters loan fees and charges "<fees>"
+    And user enters start month
+    When user enters one time expenses "<oneExp>"
+    And user enters property taxes/year "<taxes>"
+    And user enters home insurance/year "<homeins>"
+    And user enters maintainance expenses/month "<mainExp>"
+    When user scroll to the table
+    Then user store the data in excel file
+
+    Examples: 
+      | homeVal | margin | loanIns | rate | year | fees  | oneExp | taxes | homeins | mainExp |
+      | 4000000 |     30 |  250000 |  9.5 |   10 | 35000 |     15 |  0.35 |    0.15 |    3000 |
+      | 3500000 |     27 |  200000 |    8 |   12 | 30000 |     20 |  0.31 |    0.17 |    2700 |
 
   Scenario Outline: User validates EMI Calculator
     Given user is on EMI calculator portal
@@ -15,12 +70,12 @@ Feature: User navigates to loan calculator
     And check if emi calculator total payment table visible
     And check if emi calculator graph visible
     And check if emi calculator year on year table visible
-    
-    Examples:
-    | loanAmt | rate | tenure | fees |
-    | 1500000 | 9.5  |   6    | 12000|
-    | 1800000 | 7.5  |   7    | 13000|
-    
+
+    Examples: 
+      | loanAmt | rate | tenure | fees  |
+      | 1500000 |  9.5 |      6 | 12000 |
+      | 1800000 |  7.5 |      7 | 13000 |
+
   Scenario Outline: User validates loan amount calculator
     Given user is on loan amount calculator
     When user enters emi "<emi>"
@@ -36,11 +91,11 @@ Feature: User navigates to loan calculator
     And check if loan amount calculator total payment table visible
     And check if loan amount calculator graph visible
     And check if loan amount calculator year on year table visible
-    
-    Examples:
-    | emi | rate | tenure | fees |
-    |20000|  11  |   4    | 9000 |
-    |22000|  13  |   5    | 8000 |
+
+    Examples: 
+      | emi   | rate | tenure | fees |
+      | 20000 |   11 |      4 | 9000 |
+      | 22000 |   13 |      5 | 8000 |
 
   Scenario Outline: User validates loan tenure calculator
     Given user is on loan tenure calculator
@@ -56,12 +111,12 @@ Feature: User navigates to loan calculator
     And check if loan tenure calculator total payment table visible
     And check if loan tenure calculator graph visible
     And check if loan tenure calculator year on year table visible
-    
-    Examples:
-    | loanAmt | emi | rate | fees |
-    | 1500000 |22000|  11  | 11000|
-    | 1700000 |22100|  9   | 10000|
-    
+
+    Examples: 
+      | loanAmt | emi   | rate | fees  |
+      | 1500000 | 22000 |   11 | 11000 |
+      | 1700000 | 22100 |    9 | 10000 |
+
   Scenario Outline: User validates interest rate calculator
     Given user is on interest rate calculator
     When user enters interest loan amount "<loanAmt>"
@@ -77,8 +132,8 @@ Feature: User navigates to loan calculator
     And check if interest rate calculator total payment table visible
     And check if interest rate calculator graph visible
     And check if interest rate calculator year on year table visible
-    
-    Examples:
-    | loanAmt | emi | tenure | fees|
-    | 1200000 |20000|   4    |9000 |
-    | 1400000 |25000|   6    |8000 |
+
+    Examples: 
+      | loanAmt | emi   | tenure | fees |
+      | 1200000 | 20000 |      4 | 9000 |
+      | 1400000 | 25000 |      6 | 8000 |
