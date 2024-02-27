@@ -35,40 +35,40 @@ public class homeLoanPage extends basePage {
 	WebElement clickCalc;
 	
 	@FindBy(xpath="//*[@class='dropdown-item'][1]")								
-	WebElement homeEMI;
+	public WebElement homeEMI;
 	
 	@FindBy(xpath="//*[@id='homeprice']")
-	WebElement homePrice;
+	public WebElement homePrice;
 	
 	@FindBy(xpath="//*[@id='downpayment']")
-	WebElement downPayment;
+	public WebElement downPayment;
 	
 	@FindBy(xpath="//*[@id='homeloaninsuranceamount']")
-	WebElement homeLoanIns;
+	public WebElement homeLoanIns;
 	
 	@FindBy(xpath="homeloanamount")
-	WebElement homeLoanAmt;
+	public WebElement homeLoanAmt;
 	
 	@FindBy(xpath="//*[@id='homeloaninterest']")
-	WebElement homeLoanInterest;
+	public WebElement homeLoanInterest;
 	
 	@FindBy(xpath="//*[@id='homeloanterm']")
-	WebElement homeLoanTerm;
+	public WebElement homeLoanTerm;
 	
 	@FindBy(xpath="//*[@id='loanfees']")
-	WebElement loanFees;
+	public WebElement loanFees;
 	
 	@FindBy(xpath="//*[@id='onetimeexpenses']")
-	WebElement oneTime;
+	public WebElement oneTime;
 	
 	@FindBy(xpath="//*[@id='propertytaxes']")
-	WebElement propertyTaxes;
+	public WebElement propertyTaxes;
 	
 	@FindBy(xpath="//*[@id='homeinsurance']")
-	WebElement homeIns;
+	public WebElement homeIns;
 	
 	@FindBy(xpath="//*[@id='maintenanceexpenses']")
-	WebElement maintainExp;
+	public WebElement maintainExp;
 	
 	@FindBy(xpath="//*[@id='monthlyprincipalandinterestterm']")
 	WebElement scrollToEle;
@@ -90,6 +90,15 @@ public class homeLoanPage extends basePage {
 	
 	@FindBy(xpath = "//*[@class='row no-margin yearlypaymentdetails']/td")
 	List<WebElement> homeExcelElements;	
+	
+	@FindBy(xpath="//*[@id='paymentschedule']")
+	public WebElement table;
+	
+	@FindBy(xpath="//*[@id='monthlypayment']")
+	public WebElement mPay;
+	
+	@FindBy(xpath="//*[@id='totalpayment']")
+	public WebElement tPay;
 	
 	/*public void scrolltop() {									//Method to get the full username
 		JavascriptExecutor js = (JavascriptExecutor) driver;

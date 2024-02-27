@@ -19,22 +19,22 @@ public class carLoanPage extends basePage {
 	public String initialAmt, actualAmt, initialInt, actualInt, initialTen, actualTen;
 	
 	@FindBy(id="car-loan")							//Finding the WebElement username
-	WebElement carLoan;
+	public WebElement carLoan;
 	
 	@FindBy(id="loanamount")						//Finding the WebElement next
-	WebElement loanAmt;
+	public WebElement loanAmt;
 	
 	@FindBy(id="loaninterest")						//Finding the WebElement password
-	WebElement loanInt;
+	public WebElement loanInt;
 	
 	@FindBy(id="loanterm")						//Finding the WebElement signin
-	WebElement loanTerm;
+	public WebElement loanTerm;
 	
 	@FindBy(xpath="(//*[@class='btn btn-secondary active'])[2]")							//Finding the WebElement yes
-	WebElement webElement;  //remember me after sign in 
+	public WebElement webElement;  //remember me after sign in 
 	
 	@FindBy(xpath="(//*[@class='btn btn-secondary'])[2]")
-	WebElement Emi;
+	public WebElement Emi;
 	
 	@FindBy(xpath="//*[@id='yearheader']")
 	WebElement scrollToYear;
@@ -56,6 +56,15 @@ public class carLoanPage extends basePage {
 	
 	@FindBy(xpath="//*[@id=\"loantermslider\"]/span")
 	WebElement loanslider;
+	
+	@FindBy(xpath="(//*[@class='highcharts-plot-background'])[1]")
+	public WebElement loanChart;
+	
+	@FindBy(xpath="(//*[@class='highcharts-plot-background'])[2]")
+	public WebElement loangraph;
+	
+	@FindBy(xpath="//*[@id='emipaymenttable']")
+	public WebElement table;
 	
 	public void openLoanCalc() {					//Method for passing the username 
 		

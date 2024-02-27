@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 
 //@RunWith(Cucumber.class)
 @CucumberOptions(
-		features= {".//FeatureFiles/endToEnd.feature"}, 
+		features= {".//FeatureFiles/regression.feature"}, 
 		glue = "com.interestAmount.stepDefinitions", 
 		plugin = {"pretty","html:reports/report.html","rerun:target/rerun.txt",
 				"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},

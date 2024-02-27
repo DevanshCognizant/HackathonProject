@@ -34,22 +34,22 @@ public class calcLoanPage extends basePage {
 	WebElement clickLoan;
 	
 	@FindBy(xpath="//*[@id='loanamount']")
-	WebElement LoanAmount;
+	public WebElement LoanAmount;
 	
 	@FindBy(xpath="//*[@id='loaninterest']")
-	WebElement Interest;
+	public WebElement Interest;
 	
 	@FindBy(xpath="//*[@id='loanterm']")
-	WebElement Term;
+	public WebElement Term;
 	
 	@FindBy(xpath="//*[@id='loanfees']")
-	WebElement Fees;
+	public WebElement Fees;
 	
 	@FindBy(xpath="//*[@id='loan-amount-calc']")
 	WebElement clickLoanAmt;
 	
 	@FindBy(xpath="//*[@id='loanemi']")
-	WebElement Emi;
+	public WebElement Emi;
 	
 	@FindBy(xpath="//*[@id='loan-tenure-calc']")
 	WebElement clickLoanTenure;
