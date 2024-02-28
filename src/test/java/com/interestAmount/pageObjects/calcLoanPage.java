@@ -96,6 +96,9 @@ public class calcLoanPage extends basePage {
 	@FindBy(xpath="(//*[@class='btn btn-secondary active'])[1]")
 	WebElement activeMonth;
 	
+	@FindBy(xpath="//*[@class='navbar-brand']")
+	WebElement scrollToTop;
+	
 	@FindBy(xpath="//*[@id='loanpaymenttable']")
 	public WebElement yearTable;
 	
@@ -263,6 +266,13 @@ public class calcLoanPage extends basePage {
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", scrollTable);
+
+	}
+	
+	public void scrolltotop() {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", scrollToTop);
+		scrollToTop.click();
 
 	}
 	

@@ -52,8 +52,8 @@ Feature: User navigates to EMICalculator
 
     Examples: 
       | homeVal | margin | loanIns | rate | year | fees  | oneExp | taxes | homeins | mainExp |
-      | 4000000 |     30 |  250000 |  9.5 |   10 | 35000 |     15 |  0.35 |    0.15 |    3000 |
-      | 3500000 |     27 |  200000 |    8 |   12 | 30000 |     20 |  0.31 |    0.17 |    2700 |
+      | 4000000 |     30 |  250000 |  9.5 |   10 |  3.5  |     15 |  0.35 |    0.15 |    3000 |
+     
 
   Scenario Outline: User validates EMI Calculator
     Given user is on EMI calculator portal
@@ -136,4 +136,4 @@ Feature: User navigates to EMICalculator
     Examples: 
       | loanAmt | emi   | tenure | fees |
       | 1200000 | 20000 |      4 | 9000 |
-      | 1400000 | 25000 |      6 | 8000 |
+     

@@ -198,7 +198,8 @@ public class loanCalc {
 
 	@Given("user is on loan tenure calculator")
 	public void user_is_on_loan_tenure_calculator() {
-	    gp.clickloantenure();
+	
+		gp.clickloantenure();
 	    gp.initialTenurepos();
 	}
 
@@ -282,8 +283,10 @@ public class loanCalc {
 	}
 
 	@Given("user is on interest rate calculator")
-	public void user_is_on_interest_rate_calculator() {
-	    gp.clickinterest();
+	public void user_is_on_interest_rate_calculator() throws InterruptedException {
+	    //Thread.sleep(4000);
+	    
+		gp.clickinterest();
 	    gp.initialRatepos();
 	}
 
@@ -370,5 +373,6 @@ public class loanCalc {
 	public void check_if_interest_rate_calculator_year_on_year_table_visible() {
 		gp.scrollTotable();
 		Assert.assertTrue(gp.yearTable.isDisplayed());
+		gp.scrolltotop();
 	}
 }

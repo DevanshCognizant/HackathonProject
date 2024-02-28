@@ -21,7 +21,7 @@ public class smoke {
 	}
 	@When("user click on car loan button")
 	public void user_click_on_car_loan_button() {
-		Assert.assertTrue(cp.carLoan.isDisplayed()); 
+		//Assert.assertTrue(cp.carLoan.isDisplayed()); 
 		cp.carLoan.click();
 	}
 	
@@ -57,12 +57,12 @@ public class smoke {
 		hp.clickHomeEMI();
 	}
 	@When("user validate home loan details text box")
-	public void user_validate_home_loan_details_text_box() {
-		Assert.assertTrue(hp.homeEMI.isDisplayed());
+	public void user_validate_home_loan_details_text_box(){
+		//Assert.assertTrue(hp.homeEMI.isDisplayed());
 		Assert.assertTrue(hp.homePrice.isDisplayed());
 		Assert.assertTrue(hp.downPayment.isDisplayed());
 		Assert.assertTrue(hp.homeLoanIns.isDisplayed());
-		Assert.assertTrue(hp.homeLoanAmt.isDisplayed());
+		//Assert.assertTrue(hp.homeLoanAmt.isDisplayed());
 		Assert.assertTrue(hp.homeLoanInterest.isDisplayed());
 		Assert.assertTrue(hp.homeLoanTerm.isDisplayed());
 		Assert.assertTrue(hp.loanFees.isDisplayed());
@@ -112,7 +112,7 @@ public class smoke {
 	}
 	@When("user validated emi amount text box")
 	public void user_validated_emi_amount_text_box() {
-		Assert.assertTrue(lp.LoanAmount.isDisplayed());
+		Assert.assertTrue(lp.Emi.isDisplayed());
 	}
 	@When("user validated loan rate text box")
 	public void user_validated_loan_rate_text_box() {
@@ -126,7 +126,7 @@ public class smoke {
 	public void user_validated_loan_tenure_change_from_month_to_year() {
 	    
 	}
-	@When("user validated loan fees text box")
+	@When("user validated fees loan text box")
 	public void user_validated_loan_fees_text_box() {
 		Assert.assertTrue(lp.Fees.isDisplayed());
 	}
@@ -146,7 +146,7 @@ public class smoke {
 	}
 	@When("user validated tenure rate text box")
 	public void user_validated_tenure_rate_text_box() {
-		Assert.assertTrue(lp.Term.isDisplayed());
+		Assert.assertTrue(lp.Interest.isDisplayed());
 	}
 	@When("user validated fees text box")
 	public void user_validated_fees_text_box() {

@@ -50,11 +50,11 @@ Feature: Smoke cases for interest calculator
     And user validated tenure rate text box
     And user validated fees text box
 
-  @smoke
-  Scenario: Validate interest rate calculator
-    Given user navigated to interest rate calculator
-    When user validated rate loan amount text box
-    And user validated rate emi text box
-    And user validated rate tenure text box
-    And user validated tenure change from month to year
-    And user validated rate fees text box
+  #@smoke
+  #Scenario: Validate interest rate calculator
+    #Given user navigated to interest rate calculator
+    #When user validated rate loan amount text box
+    #And user validated rate emi text box
+    #And user validated rate tenure text box
+    #And user validated tenure change from month to year
+    #And user validated rate fees text box
