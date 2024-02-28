@@ -2,14 +2,18 @@ package com.interestAmount.utils;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.Platform;
 //import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class baseClass {
 
@@ -20,27 +24,49 @@ public static WebDriver initializeBrowse() throws IOException{			//method for in
 	
 
 		
-	switch(getProperties().getProperty("browser").toLowerCase()) {
-		case "chrome":
-			driver = new ChromeDriver();								//Creating new Chrome driver instance
-			break;
-		case "edge":
-			driver = new EdgeDriver();									//Creating new Edge driver instance
-			break;
-		case "firefox":
-			driver = new FirefoxDriver();								//Creating new Firefox driver instance
-			break;
-		default:
-			System.out.println("no matching browser");	
-			driver = null;
-			
+	if(getProperties().getProperty("execution_env").equalsIgnoreCase("remote"))
+	{
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		//os
+		if (getProperties().getProperty("os").equalsIgnoreCase("windows")) {
+		    capabilities.setPlatform(Platform.WIN11);
+		} else if (getProperties().getProperty("os").equalsIgnoreCase("mac")) {
+		    capabilities.setPlatform(Platform.MAC);
+		} else {
+		    System.out.println("No matching OS..");
+		      }
+		//browser
+		switch (getProperties().getProperty("browser").toLowerCase()) {
+		    case "chrome":
+		        capabilities.setBrowserName("chrome");
+		        break;
+		    case "edge":
+		        capabilities.setBrowserName("MicrosoftEdge");
+		        break;
+		    default:
+		        System.out.println("No matching browser");
+		     }
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"),capabilities);
 	}
-
-	driver.manage().deleteAllCookies();									//deleting all cookies
-	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	//adding implicit wait
-	
-	
-	return driver;														//returning the driver
+	else if(getProperties().getProperty("execution_env").equalsIgnoreCase("local"))
+		{
+			switch(getProperties().getProperty("browser").toLowerCase()) 
+			{
+			case "chrome":
+		        driver=new ChromeDriver();
+		        break;
+		    case "edge":
+		    	driver=new EdgeDriver();
+		        break;
+		    default:
+		        System.out.println("No matching browser");
+		        driver=null;
+			}
+		}
+	 driver.manage().deleteAllCookies(); 
+	 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//	 driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
+	 return driver;													//returning the driver
 	
 }
 
